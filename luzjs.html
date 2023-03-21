@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vamos iluminar</title>
+        <meta charset="utf-8">
+        <script>
+            var quebrada = false; //maquina de estado pra saber se a lampada quebrou
+            function mudaLampada(tipo){
+                if(!quebrada){ //só vai atualizar o arquivo se a lâmpada não estiver quebrada
+                    document.getElementById("luz").src = "media/images/" + tipo + ".jpg"; //de acordo com o evento, o nome do arquivo muda
+                    if(tipo == 'lampada-quebrada'){ //se o tipo for lampada-quebrada, tem que alterar o estado da lâmpada para quebrada pra que ela pare de funcionar depois
+                        quebrada = true; 
+                    }
+                } 
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Acenda a lâmpada:</h1>
+        <img src="media/images/lampada-apagada.jpg" id="luz" onmousemove="mudaLampada('lampada-acesa')" onmouseout="mudaLampada('lampada-apagada')" onclick="mudaLampada('lampada-quebrada')">
+    </body>
+</html>
